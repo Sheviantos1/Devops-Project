@@ -314,7 +314,7 @@ The most common signal that is used with the `kill` command is the `SIGTERM` sig
 
   kill [Signal_option] pid. In the example above `kill -9 31379` was used to kill the job with PID 31379
 
-  ![Alt text](<Images/kill %.PNG>)
+![Alt text](<Images/kill %.PNG>)
 
 The command `kill %3` in the above image was used to send the `SIGTERM` signal to the third job in your current session. The `SIGTERM` signal is a signal that tells the process to terminate gracefully.
 
