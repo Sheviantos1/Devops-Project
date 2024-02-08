@@ -378,6 +378,7 @@ This script defines source directory and backup directory paths. it then create 
 
 ![Alt text](<IMAGES/run shell4.PNG>)
 
+# END OF SHELL SCRIPTING PROJECT
 
 
 
@@ -400,5 +401,3 @@ This script defines source directory and backup directory paths. it then create 
 
 
 
-
-e
