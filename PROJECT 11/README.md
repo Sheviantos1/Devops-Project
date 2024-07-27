@@ -346,6 +346,8 @@ ansible-playbook -i /var/lib/jenkins/jobs/ansible/builds/<build-number>/archive/
 
 You can go to each of the servers and check if `wireshark` has been installed by running `which wireshark` or `wireshark --version`
 
+![alt text](IMAGES/wireshark.PNG)
+
 ![alt text](<IMAGES/Github Repo RHEL image.png>)
 
 At the end of this project we have implemented a solution that is shown below
