@@ -167,7 +167,7 @@ Ansible Build is successful now
 
 - Configure a Post-build job to save all (**) files, like it was done in Project 9.
 
-
+![alt text](<IMAGES/Files ARchive.PNG>)
 
 5. Test your setup by making some change in README.MD file in master branch and make sure that builds starts automatically and Jenkins saves the files (build artifacts) in following folder
 
@@ -178,13 +178,9 @@ Note: Trigger Jenkins project execution only for /main (main) branch.
 
 Now your setup will look like this:
 
-![alt text](<IMAGES/Github Ansible.png>)
+![alt text](<IMAGES/Ansible build.PNG>)
 
 Tip: Every time you stop/start your Jenkins-Ansible server – you have to reconfigure GitHub webhook to a new IP address, in order to avoid it, it makes sense to allocate an Elastic IP to your Jenkins-Ansible server (you have done it before to your LB server in Project 10). Note that Elastic IP is free only when it is being allocated to an EC2 Instance, so do not forget to release Elastic IP once you terminate your EC2 Instance.
-
-
-
-
 
 ### Step 4: Prepare your development environment using Visual Studio Code
 
@@ -195,6 +191,8 @@ Tip: Every time you stop/start your Jenkins-Ansible server – you have to recon
 - Clone down the ansible-config-mgt repository to your local machine.
 
 - Run `git clone <ansible-config-mgt-repository-link>`
+
+![alt text](<IMAGES/Clone git.PNG>)
 
 ## BEGIN ANSIBLE DEVELOPMENT
 
@@ -214,6 +212,7 @@ Tip: Give your branches descriptive and comprehensive names, for example, if you
 
 6. Within the inventory folder, create an inventory file (.yml) for each environment (Development, Staging Testing and Production) dev, staging, uat, and prod respectively.
 
+![alt text](<IMAGES/Dev Prod.PNG>)
 
 ### Step 6 – Set up an Ansible Inventory
 
@@ -237,6 +236,8 @@ Now, ssh into your `Jenkins-Ansible` server using ssh-agent
 
 Also note, that your Load Balancer user is ubuntu and user for RHEL-based servers is ec2-user.
 
+![alt text](<IMAGES/eval agent.PNG>)
+
 Update your `inventory/dev.yml` file with this snippet of code:
 
 ```
@@ -254,6 +255,8 @@ Update your `inventory/dev.yml` file with this snippet of code:
 <Load-Balancer-Private-IP-Address> ansible_ssh_user='ubuntu'
 
 ```
+
+![alt text](<IMAGES/Inventory dev.PNG>)
 
 ## CREATE A COMMON PLAYBOOK
 
@@ -294,6 +297,8 @@ Update your `playbooks/common.yml` file with following code
 
 ```
 
+![alt text](<IMAGES/Playbooks common.PNG>)
+
 The code provided is split into two sections, each aiming to achieve the same goal: installing or updating the Wireshark utility on RHEL 8 and Ubuntu servers. It utilizes the root user for performing these tasks and the appropriate package managers, yum for RHEL 8 and apt for Ubuntu.
 
 ### Step 8 – Update GIT with the latest code
@@ -311,6 +316,9 @@ git add <selected files>
 
 git commit -m "commit message"
 ```
+![alt text](<IMAGES/git status.PNG>)
+
+![alt text](<IMAGES/git commit.PNG>)
 
 2. Create a Pull request (PR)
 
@@ -328,15 +336,19 @@ Once the code changes appear in master branch – Jenkins will do its job and sa
 
 Now, it is time to execute ansible-playbook command and verify if your playbook actually works:
 
-Connect to your jenkins-ansible server via VScode (configure the .ssh/config file with your jenkins server information
+Connect to your jenkins-ansible server via VScode (configure the .ssh/config file with your jenkins server information)
 
 ```
 ansible-playbook -i /var/lib/jenkins/jobs/ansible/builds/<build-number>/archive/inventory/dev.yml /var/lib/jenkins/jobs/ansible/builds/<build-number>/archive/playbooks/common.yml
 ```
 
-At the end of this project we have implemented a solution that is shown below
+![alt text](<IMAGES/Playbooks dev.PNG>)
+
+You can go to each of the servers and check if `wireshark` has been installed by running `which wireshark` or `wireshark --version`
 
 ![alt text](<IMAGES/Github Repo RHEL image.png>)
+
+At the end of this project we have implemented a solution that is shown below
 
 ## END OF PROJECT 11
 
