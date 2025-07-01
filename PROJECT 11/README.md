@@ -281,7 +281,7 @@ Update your `playbooks/common.yml` file with following code
         state: latest
 
 - name: update LB server
-  hosts: lb, db
+  hosts: lb
   remote_user: ubuntu
   become: yes
   become_user: root
