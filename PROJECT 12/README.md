@@ -276,7 +276,7 @@ Now run the playbook against your `uat` inventory and see what happens:
 ```
 cd /home/ubuntu/ansible-config-mgt (mine is ansible )
 
-ansible-playbook -i /inventory/uat.yml playbooks/site.yaml
+ansible-playbook -i /inventory/uat.yml playbooks/site.yml
 ```
 
 ![alt text](<IMAGES/ansible playbook success.PNG>)
