@@ -117,8 +117,8 @@ The folder structure looks like this;
 
 ```
 ---
-- name: update web and nfs servers
-  hosts: webservers and nfs
+- name: update web, nfs and db servers
+  hosts: webservers, nfs, dbservers
   remote_user: ec2-user
   become: yes
   become_user: root
@@ -128,8 +128,8 @@ The folder structure looks like this;
       name: wireshark
       state: removed
 
-- name: update LB and DB servers
-  hosts: lb, db 
+- name: update LB server
+  hosts: lb
   remote_user: ubuntu
   become: yes
   become_user: root
