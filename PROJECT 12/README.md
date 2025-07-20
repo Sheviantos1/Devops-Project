@@ -118,7 +118,7 @@ The folder structure looks like this;
 ```
 ---
 - name: update web, nfs and db servers
-  hosts: webservers, nfs, dbservers
+  hosts: webservers, nfs, db
   remote_user: ec2-user
   become: yes
   become_user: root
@@ -150,7 +150,7 @@ update site.yml with - import_playbook: ../static-assignments/common-del.yml ins
 ![alt text](<IMAGES/site del.PNG>)
 
 ```
-cd /home/ubuntu/ansible-config-mgt/
+cd /home/ubuntu/ansible-config-artifact/
 
 ansible-playbook -i inventory/dev.yml playbooks/site.yml
 ```
